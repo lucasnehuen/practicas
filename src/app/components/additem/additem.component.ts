@@ -10,7 +10,7 @@ export class AdditemComponent implements OnInit {
   id:number=0;
   title:string='';
   price:number=0;
-  quantity:number=0
+  quantity:number=0;
 
 constructor(){ }
 ngOnInit(): void {
