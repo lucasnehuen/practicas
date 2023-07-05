@@ -9,7 +9,7 @@ import { Item } from '../../models/item';
 export class ItemsComponent implements OnInit{
 
   items:Item[] = [];
-
+  total:number = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -38,4 +38,17 @@ export class ItemsComponent implements OnInit{
     ];
   }
 
+
+  deleteItem(item: Item){
+  this.items = this.items.filter(x=>x.id != item.id);
+  }
+
+getTotal(){
+  this.total = this.items
+              .filter(item => !item.completed)
+              .map(item => item.quantity * item.price)
+              .reduce ((acc, item)=> acc += item,0);
+}     
+
 }
+
