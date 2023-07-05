@@ -36,18 +36,28 @@ export class ItemsComponent implements OnInit{
           completed: false
           },
     ];
+
+    this.getTotal();
   }
 
-
+  
   deleteItem(item: Item){
   this.items = this.items.filter(x=>x.id != item.id);
+  this.getTotal();
+
   }
+
+toggleItem(item: Item){
+this.getTotal();
+}
 
 getTotal(){
   this.total = this.items
               .filter(item => !item.completed)
               .map(item => item.quantity * item.price)
-              .reduce ((acc, item)=> acc += item,0);
+              .reduce ((acc, item) => acc += item,0);
+
+              console.log(this.total);
 }     
 
 }
