@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Item } from '../../models/item';
+import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -10,12 +11,14 @@ export class ItemsComponent implements OnInit{
 
   items:Item[] = [];
   total:number = 0;
-  constructor() { }
+
+  constructor(private itemService:ItemService) { }
 
   ngOnInit(): void {
-    this.items = [];
-    
+
+    //this.items = [];
     this.getTotal();
+    this.items = this.itemService.getItems();
   }
 
   
