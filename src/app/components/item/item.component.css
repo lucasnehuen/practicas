@@ -2,6 +2,10 @@
     display:  flex;
     box-sizing: border-box;
 }
+.row:hover{
+    border-radius: 3px;
+    background: #ccc;
+}
 
 .completed{
     color: #ccc;
@@ -45,4 +49,5 @@ div{
     text-align: center;
     box-sizing: border-box;
     padding: 0 5px;
+
 }
